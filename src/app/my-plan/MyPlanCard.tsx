@@ -28,9 +28,7 @@ const MyPlanCard = ({ workout, isPlan }: IMyPlanCardProps) => {
       setPlan(updatedPlan);
 
       toast.success(`"${workout.name}" removed from today's plan`);
-
-    } 
-    else {
+    } else {
       const updatedSaved = saved.filter(
         (item) => item.id !== workout.id,
       );
@@ -46,7 +44,8 @@ const MyPlanCard = ({ workout, isPlan }: IMyPlanCardProps) => {
   };
 
   return (
-    <div className="flex items-center gap-4 rounded-xl border border-white/10 bg-[#15171D] p-4">
+    
+    <div className="flex flex-col gap-4 rounded-xl border border-white/10 bg-[#15171D] p-4 md:flex-row md:items-center">
       <Image
         src={workout.image}
         alt={workout.name}
@@ -82,7 +81,7 @@ const MyPlanCard = ({ workout, isPlan }: IMyPlanCardProps) => {
         </div>
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex w-full flex-wrap items-center justify-end gap-3 md:w-auto">
         <Link
           href={`/workout/${workout.id}`}
           className="btn btn-sm btn-outline border-white/20 text-white"
